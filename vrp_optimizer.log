@@ -1,0 +1,44 @@
+2025-04-02 15:38:59,080 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 15:38:59,080 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 15:38:59,086 - __main__ - INFO - Initializing solution
+2025-04-02 15:40:26,471 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 15:40:26,472 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 15:40:26,480 - __main__ - INFO - Initializing solution
+2025-04-02 15:40:26,482 - __main__ - INFO - Running ALNS algorithm for 1000 iterations
+2025-04-02 15:40:26,747 - models.alns - INFO - New best solution found at iteration 10: 25.32
+2025-04-02 15:40:26,794 - models.alns - INFO - New best solution found at iteration 11: 23.78
+2025-04-02 15:40:26,864 - models.alns - INFO - New best solution found at iteration 14: 22.43
+2025-04-02 15:40:26,888 - models.alns - INFO - New best solution found at iteration 16: 22.05
+2025-04-02 15:40:29,829 - models.alns - INFO - New best solution found at iteration 116: 21.74
+2025-04-02 15:40:29,946 - models.alns - INFO - New best solution found at iteration 119: 21.74
+2025-04-02 15:40:30,221 - models.alns - INFO - New best solution found at iteration 129: 19.97
+2025-04-02 15:40:58,026 - __main__ - INFO - Calculating metrics
+2025-04-02 15:40:58,028 - __main__ - INFO - Optimization completed in 31.56 seconds
+2025-04-02 15:40:58,028 - __main__ - INFO - Total distance: 19.97 km
+2025-04-02 15:40:58,028 - __main__ - INFO - Total time: 12.27 hours
+2025-04-02 15:40:58,028 - __main__ - INFO - Estimated fuel consumption: 2.00 liters
+2025-04-02 15:40:58,028 - __main__ - INFO - Generating visualizations
+2025-04-02 15:40:58,071 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 15:41:42,249 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 15:41:42,249 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 15:41:42,254 - __main__ - INFO - Initializing solution
+2025-04-02 15:41:42,256 - __main__ - INFO - Running ALNS algorithm for 1000 iterations
+2025-04-02 15:41:42,335 - models.alns - INFO - New best solution found at iteration 1: 25.92
+2025-04-02 15:41:42,363 - models.alns - INFO - New best solution found at iteration 2: 24.42
+2025-04-02 15:41:42,406 - models.alns - INFO - New best solution found at iteration 4: 24.06
+2025-04-02 15:41:42,484 - models.alns - INFO - New best solution found at iteration 5: 23.24
+2025-04-02 15:41:42,588 - models.alns - INFO - New best solution found at iteration 6: 22.69
+2025-04-02 15:41:42,628 - models.alns - INFO - New best solution found at iteration 7: 22.06
+2025-04-02 15:41:42,927 - models.alns - INFO - New best solution found at iteration 17: 21.74
+2025-04-02 15:41:47,706 - models.alns - INFO - New best solution found at iteration 180: 21.46
+2025-04-02 15:41:55,484 - models.alns - INFO - New best solution found at iteration 433: 20.45
+2025-04-02 15:42:06,634 - models.alns - INFO - New best solution found at iteration 794: 19.97
+2025-04-02 15:42:12,829 - __main__ - INFO - Calculating metrics
+2025-04-02 15:42:12,830 - __main__ - INFO - Optimization completed in 30.58 seconds
+2025-04-02 15:42:12,830 - __main__ - INFO - Total distance: 19.97 km
+2025-04-02 15:42:12,830 - __main__ - INFO - Total time: 11.23 hours
+2025-04-02 15:42:12,830 - __main__ - INFO - Estimated fuel consumption: 2.00 liters
+2025-04-02 15:42:12,830 - __main__ - INFO - Generating visualizations
+2025-04-02 15:42:12,861 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 15:42:12,863 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 15:42:12,863 - __main__ - INFO - Results saved to results/
