@@ -78,6 +78,44 @@ class Visualizer:
             # Create a feature group for this route
             route_group = folium.FeatureGroup(name=f"Route {i+1}")
             
+            # Calculate arrival times for this route
+            arrival_times = {}
+            wait_times = {}
+            current_time = route.driver_start_time
+            current_node = self.solution.depot
+            
+            # Calculate time to first customer
+            if route.customers:
+                first_customer = route.customers[0]
+                travel_time = route.vehicle.travel_time(current_node, first_customer)
+                current_time += travel_time
+                
+                arrival_times[first_customer.id] = current_time
+                
+                # Calculate wait time
+                wait_time = max(0, first_customer.ready_time - current_time)
+                wait_times[first_customer.id] = wait_time
+                
+                # Update current time and node
+                current_time += wait_time + first_customer.service_time
+                current_node = first_customer
+            
+            # Calculate for subsequent customers
+            for j in range(1, len(route.customers)):
+                customer = route.customers[j]
+                travel_time = route.vehicle.travel_time(current_node, customer)
+                current_time += travel_time
+                
+                arrival_times[customer.id] = current_time
+                
+                # Calculate wait time
+                wait_time = max(0, customer.ready_time - current_time)
+                wait_times[customer.id] = wait_time
+                
+                # Update current time and node
+                current_time += wait_time + customer.service_time
+                current_node = customer
+            
             # Add customer markers
             for j, customer in enumerate(route.customers):
                 # Create popup content
@@ -86,8 +124,8 @@ class Visualizer:
                 <b>Demand:</b> {customer.demand}<br>
                 <b>Time Window:</b> {customer.ready_time:.2f} - {customer.due_time:.2f}<br>
                 <b>Service Time:</b> {customer.service_time:.2f}<br>
-                <b>Arrival Time:</b> {route.arrival_times.get(customer.id, 'N/A'):.2f}<br>
-                <b>Wait Time:</b> {route.wait_times.get(customer.id, 0):.2f}<br>
+                <b>Arrival Time:</b> {arrival_times.get(customer.id, 0):.2f}<br>
+                <b>Wait Time:</b> {wait_times.get(customer.id, 0):.2f}<br>
                 """
                 
                 # Add marker
@@ -281,10 +319,10 @@ class Visualizer:
                 
                 <div class="kpi-card">
                     <div class="kpi-title">Customers Served</div>
-                    <div class="kpi-value">{summary["total_customers"] - summary["unassigned_customers"]} / {summary["total_customers"]}</div>
+                    <div class="kpi-value">{max(0, summary["total_stops"])} / {summary["total_customers"]}</div>
                     <div class="kpi-description">Number of customers served vs. total</div>
                     <div class="progress-container">
-                        <div class="progress-bar" style="width: {100 * (summary["total_customers"] - summary["unassigned_customers"]) / summary["total_customers"] if summary["total_customers"] > 0 else 0}%;"></div>
+                        <div class="progress-bar" style="width: {100 * max(0, summary["total_stops"]) / summary["total_customers"] if summary["total_customers"] > 0 else 0}%;"></div>
                     </div>
                 </div>
             </div>
@@ -332,7 +370,7 @@ class Visualizer:
                 
             distance = route.calculate_total_distance()
             duration = route.calculate_total_time()
-            utilization = route.load / route.vehicle.capacity if route.vehicle.capacity > 0 else 0
+            utilization = route.total_demand / route.vehicle.capacity if route.vehicle.capacity > 0 else 0
             
             row = f"""
             <tr>
@@ -341,7 +379,7 @@ class Visualizer:
                 <td>{len(route.customers)}</td>
                 <td>{distance:.2f}</td>
                 <td>{duration:.2f}</td>
-                <td>{route.load}</td>
+                <td>{route.total_demand}</td>
                 <td>{route.vehicle.capacity}</td>
                 <td>
                     <div class="progress-container">
@@ -378,7 +416,7 @@ class Visualizer:
             tick.set_rotation(45)
         
         # 2. Vehicle utilization
-        utilizations = [100 * route.load / route.vehicle.capacity if route.vehicle.capacity > 0 else 0 
+        utilizations = [100 * route.total_demand / route.vehicle.capacity if route.vehicle.capacity > 0 else 0 
                         for route in self.solution.routes if route.customers]
         
         axes[0, 1].bar(labels, utilizations, color=self.route_colors[:len(utilizations)])
@@ -411,4 +449,465 @@ class Visualizer:
         plt.tight_layout(rect=[0, 0, 1, 0.95])
         plt.savefig(output_file)
         logger.info(f"Metrics plot saved to {output_file}")
-        plt.close(fig) 
+        plt.close(fig)
+    
+    def plot_environmental_impact(self, output_file):
+        """
+        Create an environmental impact visualization.
+        
+        Args:
+            output_file (str): Path to save the visualization
+        """
+        import plotly.graph_objects as go
+        from plotly.subplots import make_subplots
+        import pandas as pd
+        
+        # Calculate metrics for each route
+        route_data = []
+        for route in self.solution.routes:
+            if not route.customers:
+                continue
+                
+            route_data.append({
+                "route_id": route.id,
+                "vehicle_id": route.vehicle.id,
+                "distance": route.calculate_distance(),
+                "co2_emissions": route.calculate_co2_emissions(),
+                "customer_count": len(route.customers),
+                "fuel_consumption": route.calculate_distance() * route.vehicle.fuel_consumption
+            })
+        
+        if not route_data:
+            return
+            
+        df = pd.DataFrame(route_data)
+        
+        # Create subplots
+        fig = make_subplots(
+            rows=2, cols=2,
+            subplot_titles=(
+                "CO2 Emissions by Route", 
+                "Fuel Consumption by Route",
+                "Emissions vs. Distance", 
+                "Average Emissions per Customer"
+            ),
+            specs=[
+                [{"type": "bar"}, {"type": "bar"}],
+                [{"type": "scatter"}, {"type": "bar"}]
+            ]
+        )
+        
+        # Convert route IDs to strings for better display
+        df["route_id_str"] = df["route_id"].apply(lambda x: f"Route {x}")
+        
+        # CO2 Emissions by Route
+        fig.add_trace(
+            go.Bar(
+                x=df["route_id_str"], 
+                y=df["co2_emissions"],
+                name="CO2 Emissions (kg)",
+                marker_color="green"
+            ),
+            row=1, col=1
+        )
+        
+        # Fuel Consumption by Route
+        fig.add_trace(
+            go.Bar(
+                x=df["route_id_str"], 
+                y=df["fuel_consumption"],
+                name="Fuel Consumption (L)",
+                marker_color="blue"
+            ),
+            row=1, col=2
+        )
+        
+        # Emissions vs Distance scatter plot
+        fig.add_trace(
+            go.Scatter(
+                x=df["distance"], 
+                y=df["co2_emissions"],
+                mode="markers",
+                name="CO2 vs Distance",
+                marker=dict(
+                    size=10,
+                    color=df["vehicle_id"],
+                    colorscale="Viridis",
+                    showscale=True,
+                    colorbar=dict(title="Vehicle ID")
+                ),
+                text=df["route_id_str"],  # Add route ID as hover text
+            ),
+            row=2, col=1
+        )
+        
+        # Average emissions per customer
+        df["emissions_per_customer"] = df["co2_emissions"] / df["customer_count"]
+        
+        fig.add_trace(
+            go.Bar(
+                x=df["route_id_str"], 
+                y=df["emissions_per_customer"],
+                name="CO2 per Customer (kg)",
+                marker_color="red"
+            ),
+            row=2, col=2
+        )
+        
+        # Add overall eco-efficiency score
+        total_co2 = df["co2_emissions"].sum()
+        total_distance = df["distance"].sum()
+        total_customers = df["customer_count"].sum()
+        
+        eco_efficiency = {
+            "CO2 per km": f"{total_co2 / total_distance:.2f} kg/km",
+            "CO2 per customer": f"{total_co2 / total_customers:.2f} kg/customer",
+            "Total CO2": f"{total_co2:.2f} kg"
+        }
+        
+        # Add annotations
+        for i, (key, value) in enumerate(eco_efficiency.items()):
+            fig.add_annotation(
+                x=0.02, y=0.1 - (i * 0.05),
+                xref="paper", yref="paper",
+                text=f"<b>{key}:</b> {value}",
+                showarrow=False,
+                font=dict(size=14)
+            )
+        
+        # Update layout
+        fig.update_layout(
+            title_text="Environmental Impact Analysis",
+            height=800,
+            width=1200,
+            showlegend=False
+        )
+        
+        # Update axes labels
+        fig.update_xaxes(title_text="Route", row=1, col=1)
+        fig.update_yaxes(title_text="CO2 Emissions (kg)", row=1, col=1)
+        
+        fig.update_xaxes(title_text="Route", row=1, col=2)
+        fig.update_yaxes(title_text="Fuel Consumption (L)", row=1, col=2)
+        
+        fig.update_xaxes(title_text="Distance (km)", row=2, col=1)
+        fig.update_yaxes(title_text="CO2 Emissions (kg)", row=2, col=1)
+        
+        fig.update_xaxes(title_text="Route", row=2, col=2)
+        fig.update_yaxes(title_text="CO2 per Customer (kg)", row=2, col=2)
+        
+        # If we have only one route, fix axis ranges
+        if len(df) == 1:
+            fig.update_xaxes(tickmode='array', tickvals=[df["route_id_str"].iloc[0]], row=1, col=1)
+            fig.update_xaxes(tickmode='array', tickvals=[df["route_id_str"].iloc[0]], row=1, col=2)
+            fig.update_xaxes(tickmode='array', tickvals=[df["route_id_str"].iloc[0]], row=2, col=2)
+        
+        # Save to file
+        fig.write_html(output_file)
+    
+    def plot_traffic_patterns(self, output_file):
+        """
+        Create a visualization of traffic patterns.
+        
+        Args:
+            output_file (str): Path to save the visualization
+        """
+        import plotly.graph_objects as go
+        from plotly.subplots import make_subplots
+        import pandas as pd
+        import numpy as np
+        
+        # Get the first vehicle to extract traffic patterns
+        # (assuming all vehicles have the same pattern)
+        if not self.solution.routes or not self.solution.routes[0].vehicle:
+            return
+            
+        vehicle = self.solution.routes[0].vehicle
+        
+        if not hasattr(vehicle, 'time_dependent_speed_factors'):
+            # No traffic patterns defined
+            return
+            
+        # Extract traffic pattern data
+        hours = list(range(24))
+        speed_factors = [vehicle.time_dependent_speed_factors.get(h, 1.0) for h in hours]
+        
+        # Create figure
+        fig = make_subplots(
+            rows=2, cols=1,
+            subplot_titles=(
+                "Traffic Speed Factors Throughout the Day",
+                "Optimal Departure Times Analysis"
+            ),
+            specs=[
+                [{"type": "scatter"}],
+                [{"type": "heatmap"}]
+            ],
+            vertical_spacing=0.15
+        )
+        
+        # Traffic pattern line chart
+        fig.add_trace(
+            go.Scatter(
+                x=hours,
+                y=speed_factors,
+                mode='lines+markers',
+                name='Speed Factor',
+                line=dict(color='blue', width=3),
+                marker=dict(size=8)
+            ),
+            row=1, col=1
+        )
+        
+        # Add reference line at y=1.0 (normal speed)
+        fig.add_trace(
+            go.Scatter(
+                x=[0, 23],
+                y=[1, 1],
+                mode='lines',
+                name='Normal Speed',
+                line=dict(color='red', width=2, dash='dash')
+            ),
+            row=1, col=1
+        )
+        
+        # Convert to travel time factors for better visualization
+        # (inverse of speed factor: lower speed = higher travel time)
+        travel_time_factors = [1/factor for factor in speed_factors]
+        
+        # Create travel time matrix
+        # For each starting hour, calculate the travel time for a journey taking 1-5 hours
+        time_matrix = np.zeros((24, 5))
+        
+        for start_hour in range(24):
+            for duration in range(1, 6):  # 1-5 hour journeys
+                total_travel_time = 0
+                current_hour = start_hour
+                
+                # Simulate travel
+                for _ in range(duration):
+                    travel_time_factor = 1/vehicle.time_dependent_speed_factors.get(current_hour, 1.0)
+                    total_travel_time += travel_time_factor
+                    current_hour = (current_hour + 1) % 24
+                
+                # Calculate efficiency (ratio of actual travel time to ideal travel time)
+                efficiency = total_travel_time / duration
+                time_matrix[start_hour, duration-1] = efficiency
+        
+        # Create heatmap of travel time efficiency
+        fig.add_trace(
+            go.Heatmap(
+                z=time_matrix,
+                x=[f"{i+1} hr" for i in range(5)],
+                y=hours,
+                colorscale='RdYlGn_r',  # Red=bad (high travel time), Green=good (low travel time)
+                zmin=0.8,
+                zmax=1.2,
+                colorbar=dict(title="Travel Time<br>Efficiency"),
+            ),
+            row=2, col=1
+        )
+        
+        # Add annotations explaining the heatmap
+        fig.add_annotation(
+            x=0.5, y=0.45,
+            xref="paper", yref="paper",
+            text="Lower values (green) indicate more efficient departure times",
+            showarrow=False,
+            font=dict(size=12)
+        )
+        
+        # Update layout
+        fig.update_layout(
+            title_text="Traffic Pattern Analysis",
+            height=1000,
+            width=1000
+        )
+        
+        # Update axes labels
+        fig.update_xaxes(title_text="Hour of Day (0-23)", row=1, col=1)
+        fig.update_yaxes(title_text="Speed Factor (% of normal speed)", row=1, col=1, 
+                        tickformat=".0%", range=[0, max(speed_factors) * 1.1])
+        
+        fig.update_xaxes(title_text="Journey Duration", row=2, col=1)
+        fig.update_yaxes(title_text="Departure Hour", row=2, col=1)
+        
+        # Save to file
+        fig.write_html(output_file)
+    
+    def plot_fleet_composition(self, output_file):
+        """
+        Create a visualization of the heterogeneous fleet composition.
+        
+        Args:
+            output_file (str): Path to save the visualization
+        """
+        import plotly.graph_objects as go
+        from plotly.subplots import make_subplots
+        import pandas as pd
+        
+        # Extract vehicle data
+        vehicle_data = []
+        for route in self.solution.routes:
+            if route.vehicle:
+                vehicle_data.append({
+                    "vehicle_id": route.vehicle.id,
+                    "capacity": route.vehicle.capacity,
+                    "speed": route.vehicle.speed,
+                    "fixed_cost": route.vehicle.fixed_cost,
+                    "variable_cost": route.vehicle.variable_cost,
+                    "fuel_consumption": route.vehicle.fuel_consumption,
+                    "is_used": len(route.customers) > 0,
+                    "customers_served": len(route.customers),
+                    "utilization": route.total_demand / route.vehicle.capacity if route.vehicle.capacity > 0 else 0,
+                    "distance": route.calculate_distance() if len(route.customers) > 0 else 0
+                })
+        
+        if not vehicle_data:
+            return
+            
+        df = pd.DataFrame(vehicle_data)
+        
+        # Group vehicles by capacity to identify types
+        # Determine vehicle types based on capacity
+        capacity_groups = df['capacity'].unique()
+        capacity_groups.sort()
+        
+        # Assign type names based on capacity
+        vehicle_types = []
+        for capacity in capacity_groups:
+            if capacity <= 50:
+                vehicle_types.append("Small Van")
+            elif capacity <= 100:
+                vehicle_types.append("Medium Truck")
+            elif capacity <= 200:
+                vehicle_types.append("Large Truck")
+            else:
+                vehicle_types.append("Extra Large Truck")
+        
+        # Create subplots
+        fig = make_subplots(
+            rows=2, cols=2,
+            subplot_titles=(
+                "Fleet Composition by Vehicle Type", 
+                "Vehicle Utilization",
+                "Vehicle Capacity vs. Distance", 
+                "Cost Structure by Vehicle Type"
+            ),
+            specs=[
+                [{"type": "pie"}, {"type": "bar"}],
+                [{"type": "scatter"}, {"type": "bar"}]
+            ]
+        )
+        
+        # Add vehicle type information to dataframe
+        df['vehicle_type'] = None
+        for i, capacity in enumerate(capacity_groups):
+            df.loc[df['capacity'] == capacity, 'vehicle_type'] = vehicle_types[i]
+        
+        # Fleet composition pie chart
+        vehicle_type_counts = df['vehicle_type'].value_counts()
+        fig.add_trace(
+            go.Pie(
+                labels=vehicle_type_counts.index,
+                values=vehicle_type_counts.values,
+                textinfo='percent+label',
+                marker=dict(colors=['#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3'])
+            ),
+            row=1, col=1
+        )
+        
+        # Vehicle utilization bar chart
+        # Only include used vehicles
+        used_vehicles = df[df['is_used']]
+        if not used_vehicles.empty:
+            fig.add_trace(
+                go.Bar(
+                    x=used_vehicles['vehicle_id'],
+                    y=used_vehicles['utilization'] * 100,  # Convert to percentage
+                    marker_color=used_vehicles['vehicle_type'].map({
+                        'Small Van': '#66c2a5',
+                        'Medium Truck': '#fc8d62',
+                        'Large Truck': '#8da0cb',
+                        'Extra Large Truck': '#e78ac3'
+                    }),
+                    text=used_vehicles['vehicle_type'],
+                    hovertemplate='<b>Vehicle %{x}</b><br>Utilization: %{y:.1f}%<br>Type: %{text}'
+                ),
+                row=1, col=2
+            )
+        
+        # Capacity vs. Distance scatter plot
+        fig.add_trace(
+            go.Scatter(
+                x=df['capacity'],
+                y=df['distance'],
+                mode='markers',
+                marker=dict(
+                    size=df['customers_served'] * 5,
+                    color=df['vehicle_type'].map({
+                        'Small Van': '#66c2a5',
+                        'Medium Truck': '#fc8d62',
+                        'Large Truck': '#8da0cb',
+                        'Extra Large Truck': '#e78ac3'
+                    }),
+                    line=dict(width=1, color='black')
+                ),
+                text=df['vehicle_type'],
+                hovertemplate='<b>Capacity: %{x}</b><br>Distance: %{y:.1f} km<br>Type: %{text}<br>Customers: %{marker.size:.0f}'
+            ),
+            row=2, col=1
+        )
+        
+        # Cost structure by vehicle type
+        cost_by_type = df.groupby('vehicle_type').agg({
+            'fixed_cost': 'mean',
+            'variable_cost': 'mean'
+        }).reset_index()
+        
+        fig.add_trace(
+            go.Bar(
+                x=cost_by_type['vehicle_type'],
+                y=cost_by_type['fixed_cost'],
+                name='Fixed Cost',
+                marker_color='#1f77b4'
+            ),
+            row=2, col=2
+        )
+        
+        fig.add_trace(
+            go.Bar(
+                x=cost_by_type['vehicle_type'],
+                y=cost_by_type['variable_cost'] * 100,  # Scale up to be visible on same chart
+                name='Variable Cost (per km) x100',
+                marker_color='#ff7f0e'
+            ),
+            row=2, col=2
+        )
+        
+        # Update layout
+        fig.update_layout(
+            title_text="Fleet Composition Analysis",
+            height=1000,
+            width=1200,
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1
+            )
+        )
+        
+        # Update axes labels
+        fig.update_yaxes(title_text="Utilization (%)", row=1, col=2)
+        fig.update_xaxes(title_text="Vehicle ID", row=1, col=2)
+        
+        fig.update_xaxes(title_text="Vehicle Capacity", row=2, col=1)
+        fig.update_yaxes(title_text="Distance (km)", row=2, col=1)
+        
+        fig.update_xaxes(title_text="Vehicle Type", row=2, col=2)
+        fig.update_yaxes(title_text="Cost", row=2, col=2)
+        
+        # Save to file
+        fig.write_html(output_file) 

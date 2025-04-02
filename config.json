@@ -1,24 +1,27 @@
 {
     "alns": {
-        "iterations": 1000,
+        "iterations": 500,
         "segment_size": 100,
         "cooling_rate": 0.99,
-        "initial_temperature": 100,
-        "destroy_weight": 0.5,
-        "time_weight": 0.3,
-        "capacity_weight": 0.2,
-        "min_destroy_percentage": 0.1,
-        "max_destroy_percentage": 0.5,
-        "noise_parameter": 0.1,
-        "reaction_factor": 0.1,
-        "weights_decay": 0.8
+        "initial_temperature": 200,
+        "reaction_factor": 0.3,
+        "weights_decay": 0.8,
+        "min_destroy_percentage": 0.2,
+        "max_destroy_percentage": 0.6,
+        "noise_parameter": 0.2
+    },
+    "solution": {
+        "initialization_method": "random",
+        "max_route_duration": 4.0,
+        "max_vehicles": 15,
+        "time_dependent_speeds": true
     },
     "vehicles": {
         "num_vehicles": 15,
-        "capacity": 100,
+        "capacity": 30,
         "speed": 50,
-        "fixed_cost": 100,
-        "variable_cost_per_km": 0.5,
+        "fixed_cost": 20,
+        "variable_cost_per_km": 0.8,
         "fuel_consumption_per_km": 0.1
     },
     "time_windows": {
@@ -27,17 +30,18 @@
         "service_time": 0.5
     },
     "constraints": {
-        "max_route_duration": 8,
-        "max_route_distance": 500
+        "max_route_duration": 4,
+        "max_route_distance": 200
     },
     "optimization": {
-        "objective": "min_distance"
+        "objective": "min_vehicles_distance"
     },
     "visualization": {
+        "route_colors": [
+            "#FF5733", "#33FF57", "#3357FF", "#FF33A6", "#A633FF", "#33FFF9",
+            "#FFBD33", "#7DFF33", "#33FFBD", "#FF33BD", "#BD33FF", "#33BDFF"
+        ],
         "map_center": [41.8781, -87.6298],
-        "map_zoom": 10,
-        "depot_icon": "red",
-        "customer_icon": "blue",
-        "route_colors": ["#FF5733", "#33FF57", "#3357FF", "#FF33A6", "#A633FF", "#33FFF9"]
+        "map_zoom": 12
     }
 } 

@@ -1,0 +1,989 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>ALNS Progress Report</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                    color: #333;
+                }
+                h1, h2, h3 {
+                    color: #2c3e50;
+                }
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: left;
+                }
+                th {
+                    background-color: #f2f2f2;
+                }
+                tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                }
+                tr:hover {
+                    background-color: #f5f5f5;
+                }
+                .summary-section {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    margin-bottom: 30px;
+                }
+                .summary-card {
+                    background-color: #f8f9fa;
+                    border: 1px solid #dee2e6;
+                    border-radius: 5px;
+                    padding: 15px;
+                    width: 300px;
+                }
+                .summary-value {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #3498db;
+                }
+                .accepted-row { 
+                    background-color: rgba(0, 255, 0, 0.1) !important; 
+                }
+                .improved-row { 
+                    background-color: rgba(255, 215, 0, 0.2) !important; 
+                }
+                .best-row { 
+                    background-color: rgba(255, 99, 71, 0.2) !important; 
+                }
+                .progress-container {
+                    background-color: #e0e0e0;
+                    border-radius: 5px;
+                    height: 10px;
+                    width: 100%;
+                    margin-top: 5px;
+                }
+                .progress-bar {
+                    height: 10px;
+                    border-radius: 5px;
+                    background-color: #3498db;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>ALNS Algorithm Progress Report</h1>
+            
+            <div class="summary-section">
+                <div class="summary-card">
+                    <h3>Iterations</h3>
+                    <div class="summary-value">50</div>
+                    <p>Total iterations performed</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Acceptance Rate</h3>
+                    <div class="summary-value">100.0%</div>
+                    <p>50 solutions accepted</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 100.0%;"></div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Improvement Rate</h3>
+                    <div class="summary-value">0.0%</div>
+                    <p>0 solutions improved the best</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0.0%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Operator Performance</h2>
+            
+            <h3>Destroy Operators</h3>
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Usage</th>
+                    <th>Acceptance Rate</th>
+                    <th>Improvement Rate</th>
+                </tr>
+        
+                <tr>
+                    <td>Time Window Removal</td>
+                    <td>5 (10.0%)</td>
+                    <td>
+                        5 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Worst Removal</td>
+                    <td>8 (16.0%)</td>
+                    <td>
+                        8 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Route Removal</td>
+                    <td>3 (6.0%)</td>
+                    <td>
+                        3 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Time-Oriented Removal</td>
+                    <td>9 (18.0%)</td>
+                    <td>
+                        9 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Proximity Cluster Removal</td>
+                    <td>5 (10.0%)</td>
+                    <td>
+                        5 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Shaw Removal</td>
+                    <td>6 (12.0%)</td>
+                    <td>
+                        6 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Historical Knowledge Removal</td>
+                    <td>9 (18.0%)</td>
+                    <td>
+                        9 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Random Removal</td>
+                    <td>5 (10.0%)</td>
+                    <td>
+                        5 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+            </table>
+            
+            <h3>Repair Operators</h3>
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Usage</th>
+                    <th>Acceptance Rate</th>
+                    <th>Improvement Rate</th>
+                </tr>
+        
+                <tr>
+                    <td>Two-Phase Insertion</td>
+                    <td>8 (16.0%)</td>
+                    <td>
+                        8 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Nearest Neighbor</td>
+                    <td>11 (22.0%)</td>
+                    <td>
+                        11 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Best Position Insertion</td>
+                    <td>9 (18.0%)</td>
+                    <td>
+                        9 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Greedy Insertion</td>
+                    <td>5 (10.0%)</td>
+                    <td>
+                        5 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Regret Insertion</td>
+                    <td>5 (10.0%)</td>
+                    <td>
+                        5 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Sequential Insertion</td>
+                    <td>12 (24.0%)</td>
+                    <td>
+                        12 (100.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100.0%;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        0 (0.0%)
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0.0%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            
+            </table>
+            
+            <h2>Iteration Details</h2>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Destroy</th>
+                    <th>Repair</th>
+                    <th>Removed</th>
+                    <th>Inserted</th>
+                    <th>Unassigned</th>
+                    <th>Objective Value</th>
+                    <th>Delta</th>
+                    <th>Status</th>
+                </tr>
+        
+                <tr class="accepted-row">
+                    <td>1</td>
+                    <td>Time Window Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>4</td>
+                    <td>-20</td>
+                    <td>24</td>
+                    <td>240036.27</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>2</td>
+                    <td>Worst Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>8</td>
+                    <td>-24</td>
+                    <td>32</td>
+                    <td>320017.50</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>3</td>
+                    <td>Time Window Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>5</td>
+                    <td>-32</td>
+                    <td>37</td>
+                    <td>370017.70</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>4</td>
+                    <td>Worst Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>2</td>
+                    <td>-37</td>
+                    <td>39</td>
+                    <td>390015.13</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>5</td>
+                    <td>Route Removal</td>
+                    <td>Greedy Insertion</td>
+                    <td>4</td>
+                    <td>-39</td>
+                    <td>43</td>
+                    <td>430009.63</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>6</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Regret Insertion</td>
+                    <td>3</td>
+                    <td>-43</td>
+                    <td>46</td>
+                    <td>460007.76</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>7</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>1</td>
+                    <td>-46</td>
+                    <td>47</td>
+                    <td>470004.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>8</td>
+                    <td>Proximity Cluster Removal</td>
+                    <td>Regret Insertion</td>
+                    <td>0</td>
+                    <td>-47</td>
+                    <td>47</td>
+                    <td>470004.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>9</td>
+                    <td>Shaw Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>1</td>
+                    <td>-47</td>
+                    <td>48</td>
+                    <td>480004.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>10</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>1</td>
+                    <td>-48</td>
+                    <td>49</td>
+                    <td>490004.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>11</td>
+                    <td>Proximity Cluster Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>1</td>
+                    <td>-49</td>
+                    <td>50</td>
+                    <td>500003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>12</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>0</td>
+                    <td>-50</td>
+                    <td>50</td>
+                    <td>500003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>13</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>1</td>
+                    <td>-49</td>
+                    <td>50</td>
+                    <td>500003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>14</td>
+                    <td>Proximity Cluster Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-50</td>
+                    <td>50</td>
+                    <td>500003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>15</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>0</td>
+                    <td>-50</td>
+                    <td>50</td>
+                    <td>500003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>16</td>
+                    <td>Random Removal</td>
+                    <td>Greedy Insertion</td>
+                    <td>0</td>
+                    <td>-50</td>
+                    <td>50</td>
+                    <td>500003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>17</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>1</td>
+                    <td>-50</td>
+                    <td>51</td>
+                    <td>510003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>18</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>1</td>
+                    <td>-51</td>
+                    <td>52</td>
+                    <td>520003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>19</td>
+                    <td>Random Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>0</td>
+                    <td>-52</td>
+                    <td>52</td>
+                    <td>520003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>20</td>
+                    <td>Time Window Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>1</td>
+                    <td>-51</td>
+                    <td>52</td>
+                    <td>520003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>21</td>
+                    <td>Proximity Cluster Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-52</td>
+                    <td>52</td>
+                    <td>520003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>22</td>
+                    <td>Random Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>0</td>
+                    <td>-52</td>
+                    <td>52</td>
+                    <td>520003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>23</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>1</td>
+                    <td>-52</td>
+                    <td>53</td>
+                    <td>530003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>24</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>1</td>
+                    <td>-52</td>
+                    <td>53</td>
+                    <td>530003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>25</td>
+                    <td>Worst Removal</td>
+                    <td>Greedy Insertion</td>
+                    <td>0</td>
+                    <td>-53</td>
+                    <td>53</td>
+                    <td>530003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>26</td>
+                    <td>Random Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>0</td>
+                    <td>-53</td>
+                    <td>53</td>
+                    <td>530003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>27</td>
+                    <td>Worst Removal</td>
+                    <td>Greedy Insertion</td>
+                    <td>0</td>
+                    <td>-53</td>
+                    <td>53</td>
+                    <td>530003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>28</td>
+                    <td>Time Window Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>1</td>
+                    <td>-53</td>
+                    <td>54</td>
+                    <td>540003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>29</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Two-Phase Insertion</td>
+                    <td>1</td>
+                    <td>-54</td>
+                    <td>55</td>
+                    <td>550003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>30</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-55</td>
+                    <td>55</td>
+                    <td>550003.05</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>31</td>
+                    <td>Route Removal</td>
+                    <td>Regret Insertion</td>
+                    <td>1</td>
+                    <td>-55</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>32</td>
+                    <td>Shaw Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>33</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Regret Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>34</td>
+                    <td>Worst Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>35</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>36</td>
+                    <td>Worst Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>37</td>
+                    <td>Proximity Cluster Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>38</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>39</td>
+                    <td>Random Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>40</td>
+                    <td>Time Window Removal</td>
+                    <td>Regret Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>41</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>42</td>
+                    <td>Shaw Removal</td>
+                    <td>Greedy Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>43</td>
+                    <td>Route Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>44</td>
+                    <td>Worst Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>45</td>
+                    <td>Worst Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>46</td>
+                    <td>Shaw Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>47</td>
+                    <td>Shaw Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>48</td>
+                    <td>Shaw Removal</td>
+                    <td>Best Position Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>49</td>
+                    <td>Time-Oriented Removal</td>
+                    <td>Sequential Insertion</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+                <tr class="accepted-row">
+                    <td>50</td>
+                    <td>Historical Knowledge Removal</td>
+                    <td>Nearest Neighbor</td>
+                    <td>0</td>
+                    <td>-56</td>
+                    <td>56</td>
+                    <td>560000.00</td>
+                    <td>0.00%</td>
+                    <td>✓ Accepted</td>
+                </tr>
+            
+            </table>
+            
+            <p style="text-align: center; margin-top: 50px; color: #777;">
+                Generated by VRP Optimizer
+            </p>
+        </body>
+        </html>
+        

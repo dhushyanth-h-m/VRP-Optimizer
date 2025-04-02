@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import logging
 from geopy.distance import great_circle
+from math import ceil
 
 logger = logging.getLogger(__name__)
 
@@ -86,20 +87,77 @@ class Vehicle:
         self.fixed_cost = fixed_cost
         self.variable_cost = variable_cost
         self.fuel_consumption = fuel_consumption
+        # Initialize time-dependent speed factors (default: no variation)
+        self.time_dependent_speed_factors = {h: 1.0 for h in range(24)}
         
-    def travel_time(self, node1, node2):
+    def set_time_dependent_speed_factors(self, factors):
+        """
+        Set time-dependent speed factors to simulate traffic.
+        
+        Args:
+            factors (dict): Dictionary mapping hour of day (0-23) to speed factor (e.g., 0.7 for 70% of normal speed)
+        """
+        for hour, factor in factors.items():
+            if 0 <= hour < 24 and 0 < factor <= 1.5:  # Sanity check on values
+                self.time_dependent_speed_factors[hour] = factor
+                
+    def get_speed_at_time(self, time):
+        """
+        Get the adjusted speed at a specific time of day.
+        
+        Args:
+            time (float): Time in hours (e.g., 14.5 for 2:30 PM)
+            
+        Returns:
+            float: Adjusted speed in km/h
+        """
+        hour = int(time) % 24
+        return self.speed * self.time_dependent_speed_factors[hour]
+        
+    def travel_time(self, node1, node2, departure_time=None):
         """
         Calculate travel time between two nodes.
         
         Args:
             node1 (Node): First node
             node2 (Node): Second node
+            departure_time (float, optional): Time of departure in hours
             
         Returns:
             float: Travel time in hours
         """
         distance = node1.distance_to(node2)
-        return distance / self.speed
+        
+        if departure_time is None:
+            # Use average speed if no departure time provided
+            return distance / self.speed
+        
+        # For time-dependent travel time, we need to simulate the journey
+        # since the speed might change during the journey
+        time = departure_time
+        remaining_distance = distance
+        total_time = 0
+        
+        while remaining_distance > 0:
+            hour = int(time) % 24
+            speed_factor = self.time_dependent_speed_factors[hour]
+            current_speed = self.speed * speed_factor
+            
+            # Calculate how far we can go in the current hour
+            hours_in_current_period = min(1.0, ceil(time) - time)
+            distance_in_period = current_speed * hours_in_current_period
+            
+            if distance_in_period >= remaining_distance:
+                # We'll reach the destination in this period
+                total_time += remaining_distance / current_speed
+                remaining_distance = 0
+            else:
+                # We'll continue in the next period
+                total_time += hours_in_current_period
+                remaining_distance -= distance_in_period
+                time = (time + hours_in_current_period) % 24
+        
+        return total_time
     
     def __str__(self):
         return f"Vehicle(id={self.id}, capacity={self.capacity}, speed={self.speed})"

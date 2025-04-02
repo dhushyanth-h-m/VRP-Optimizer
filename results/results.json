@@ -1,0 +1,86 @@
+{
+  "summary": {
+    "total_distance": 34.46384949371138,
+    "total_time": 13.801494687772784,
+    "fuel_consumption": 3.4463849493711383,
+    "co2_emissions": 86.15962373427847,
+    "total_vehicles_used": 4,
+    "total_customers": 20,
+    "computation_time": 2.3409321308135986
+  },
+  "environmental_impact": {
+    "total_co2_emissions": 86.15962373427847,
+    "co2_per_km": 2.5000000000000004,
+    "total_distance": 34.46384949371138
+  },
+  "routes": [
+    {
+      "route_id": 0,
+      "vehicle_id": 21,
+      "vehicle_capacity": 100.0,
+      "total_demand": 100.0,
+      "distance": 8.625220977584815,
+      "travel_time": 4.387795431056228,
+      "co2_emissions": 21.56305244396204,
+      "customer_count": 7,
+      "customer_ids": [
+        19,
+        1,
+        17,
+        13,
+        9,
+        5,
+        12
+      ]
+    },
+    {
+      "route_id": 1,
+      "vehicle_id": 22,
+      "vehicle_capacity": 100.0,
+      "total_demand": 99.0,
+      "distance": 10.083767960714956,
+      "travel_time": 3.2982542183998422,
+      "co2_emissions": 25.209419901787392,
+      "customer_count": 6,
+      "customer_ids": [
+        14,
+        6,
+        16,
+        3,
+        20,
+        10
+      ]
+    },
+    {
+      "route_id": 2,
+      "vehicle_id": 23,
+      "vehicle_capacity": 100.0,
+      "total_demand": 98.0,
+      "distance": 9.412641968662964,
+      "travel_time": 3.2875899440653025,
+      "co2_emissions": 23.53160492165741,
+      "customer_count": 5,
+      "customer_ids": [
+        4,
+        2,
+        11,
+        7,
+        18
+      ]
+    },
+    {
+      "route_id": 3,
+      "vehicle_id": 24,
+      "vehicle_capacity": 100.0,
+      "total_demand": 23.0,
+      "distance": 6.342218586748647,
+      "travel_time": 2.8278550942514125,
+      "co2_emissions": 15.855546466871617,
+      "customer_count": 2,
+      "customer_ids": [
+        8,
+        15
+      ]
+    }
+  ]
+}

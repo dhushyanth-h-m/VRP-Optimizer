@@ -42,3 +42,474 @@
 2025-04-02 15:42:12,861 - visualization.visualizer - INFO - Routes map saved to results/routes.html
 2025-04-02 15:42:12,863 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
 2025-04-02 15:42:12,863 - __main__ - INFO - Results saved to results/
+2025-04-02 16:04:51,073 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:04:51,074 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:04:51,084 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:04:51,084 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:04:51,084 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:04:51,085 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:04:51,085 - __main__ - INFO - Initializing solution
+2025-04-02 16:07:38,088 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:07:38,088 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:07:38,096 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:07:38,096 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:07:38,096 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:07:38,096 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:07:38,096 - __main__ - INFO - Initializing solution
+2025-04-02 16:08:43,028 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:08:43,028 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:08:43,042 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:08:43,042 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:08:43,042 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:08:43,042 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:08:43,042 - __main__ - INFO - Initializing solution
+2025-04-02 16:08:43,080 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:08:43,080 - __main__ - INFO - Setting driver working hour constraints
+2025-04-02 16:08:43,081 - __main__ - INFO - Running ALNS algorithm for 500 iterations
+2025-04-02 16:11:33,208 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:11:33,209 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:11:33,216 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:11:33,216 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:11:33,217 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:11:33,217 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:11:33,217 - __main__ - INFO - Initializing solution
+2025-04-02 16:11:33,256 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:11:33,256 - __main__ - INFO - Setting driver working hour constraints
+2025-04-02 16:11:33,257 - __main__ - INFO - Running ALNS algorithm for 50 iterations
+2025-04-02 16:13:06,436 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:13:06,436 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:13:06,441 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:13:06,441 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:13:06,441 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:13:06,442 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:13:06,442 - __main__ - INFO - Initializing solution
+2025-04-02 16:13:06,478 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:13:06,478 - __main__ - INFO - Setting driver working hour constraints
+2025-04-02 16:13:06,478 - __main__ - INFO - Running ALNS algorithm for 10 iterations
+2025-04-02 16:14:23,899 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:14:23,899 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:14:23,908 - __main__ - INFO - Initializing solution
+2025-04-02 16:14:23,988 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:14:51,998 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:14:51,999 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:14:52,011 - __main__ - INFO - Initializing solution
+2025-04-02 16:14:52,085 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:15:13,014 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:15:13,014 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:15:13,023 - __main__ - INFO - Initializing solution
+2025-04-02 16:15:13,094 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:16:19,758 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:16:19,758 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:16:19,767 - __main__ - INFO - Initializing solution
+2025-04-02 16:16:19,838 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:19:13,408 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:19:13,409 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:19:13,418 - __main__ - INFO - Initializing solution
+2025-04-02 16:19:13,489 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:19:13,515 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:19:13,516 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:19:13,516 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:19:13,516 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:19:13,516 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,115 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:21:30,116 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:21:30,124 - __main__ - INFO - Initializing solution
+2025-04-02 16:21:30,196 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,452 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,800 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,800 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,800 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,800 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,801 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:21:30,803 - __main__ - INFO - Calculating metrics
+2025-04-02 16:21:30,804 - __main__ - INFO - Optimization completed in 0.69 seconds
+2025-04-02 16:21:30,804 - __main__ - INFO - Total distance: 25.51 km
+2025-04-02 16:21:30,804 - __main__ - INFO - Total time: 7.76 hours
+2025-04-02 16:21:30,804 - __main__ - INFO - Estimated fuel consumption: 2.55 liters
+2025-04-02 16:21:30,804 - __main__ - INFO - Estimated CO2 emissions: 63.77 kg
+2025-04-02 16:21:30,813 - __main__ - INFO - Generating visualizations
+2025-04-02 16:23:22,823 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:23:22,823 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:23:22,832 - __main__ - INFO - Initializing solution
+2025-04-02 16:23:22,903 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:23:23,112 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,112 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,112 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,121 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,121 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,121 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,121 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,121 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,121 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,122 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:23:23,147 - __main__ - INFO - Calculating metrics
+2025-04-02 16:23:23,149 - __main__ - INFO - Optimization completed in 0.33 seconds
+2025-04-02 16:23:23,149 - __main__ - INFO - Total distance: 25.51 km
+2025-04-02 16:23:23,149 - __main__ - INFO - Total time: 7.76 hours
+2025-04-02 16:23:23,149 - __main__ - INFO - Estimated fuel consumption: 2.55 liters
+2025-04-02 16:23:23,149 - __main__ - INFO - Estimated CO2 emissions: 63.77 kg
+2025-04-02 16:23:23,157 - __main__ - INFO - Generating visualizations
+2025-04-02 16:23:23,279 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:23:23,281 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:23:23,595 - __main__ - INFO - Results saved to results/
+2025-04-02 16:23:45,078 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:23:45,080 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:23:45,106 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:23:45,107 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:23:45,107 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:23:45,107 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:23:45,107 - __main__ - INFO - Initializing solution
+2025-04-02 16:23:45,216 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:23:45,216 - __main__ - INFO - Setting driver working hour constraints
+2025-04-02 16:23:45,216 - __main__ - INFO - Running ALNS algorithm for 10 iterations
+2025-04-02 16:25:27,551 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:25:27,552 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:25:27,561 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:25:27,562 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:25:27,562 - __main__ - INFO - Initializing solution
+2025-04-02 16:25:27,631 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:25:27,632 - __main__ - INFO - Running ALNS algorithm for 10 iterations
+2025-04-02 16:27:15,426 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:27:15,426 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:27:15,436 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:27:15,436 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:27:15,436 - __main__ - INFO - Configuring heterogeneous fleet
+2025-04-02 16:27:15,436 - __main__ - INFO - Configured heterogeneous fleet with 15 vehicles
+2025-04-02 16:27:15,436 - __main__ - INFO - Initializing solution
+2025-04-02 16:27:15,473 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:27:15,473 - __main__ - INFO - Setting driver working hour constraints
+2025-04-02 16:27:15,473 - __main__ - INFO - Running ALNS algorithm for 20 iterations
+2025-04-02 16:28:04,900 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:28:04,900 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:28:04,905 - __main__ - INFO - Configuring traffic patterns
+2025-04-02 16:28:04,905 - __main__ - INFO - Traffic patterns configured for all vehicles
+2025-04-02 16:28:04,905 - __main__ - INFO - Initializing solution
+2025-04-02 16:28:04,974 - __main__ - INFO - Enabling time-dependent routing
+2025-04-02 16:28:04,974 - __main__ - INFO - Running ALNS algorithm for 10 iterations
+2025-04-02 16:28:34,539 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:28:34,540 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:28:34,545 - __main__ - INFO - Initializing solution
+2025-04-02 16:28:34,615 - __main__ - INFO - Running ALNS algorithm for 5 iterations
+2025-04-02 16:28:35,160 - models.alns - INFO - New best solution found at iteration 1: 210024.72
+2025-04-02 16:28:35,162 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,162 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,173 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,173 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,174 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,174 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,174 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,175 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,177 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,178 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:28:35,184 - __main__ - INFO - Calculating metrics
+2025-04-02 16:28:35,185 - __main__ - INFO - Optimization completed in 0.65 seconds
+2025-04-02 16:28:35,185 - __main__ - INFO - Total distance: 24.72 km
+2025-04-02 16:28:35,185 - __main__ - INFO - Total time: 7.74 hours
+2025-04-02 16:28:35,185 - __main__ - INFO - Estimated fuel consumption: 2.47 liters
+2025-04-02 16:28:35,185 - __main__ - INFO - Estimated CO2 emissions: 61.80 kg
+2025-04-02 16:28:35,188 - __main__ - INFO - Generating visualizations
+2025-04-02 16:28:35,405 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:28:35,411 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:28:36,294 - __main__ - INFO - Results saved to results/
+2025-04-02 16:31:19,474 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:31:19,474 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:31:19,485 - __main__ - INFO - Initializing solution
+2025-04-02 16:31:19,559 - __main__ - INFO - Running ALNS algorithm for 25 iterations
+2025-04-02 16:31:19,588 - models.alns - INFO - Starting ALNS algorithm with 25 iterations
+2025-04-02 16:31:19,588 - models.alns - INFO - Initial solution: objective=210025.51, vehicles=1
+2025-04-02 16:31:19,592 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:19,592 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:19,592 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:19,599 - models.alns - INFO - Iteration 1: objective=240023.99, removed=3, inserted=-21, unassigned=24, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:31:19,601 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:19,601 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:19,667 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,270 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,271 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:20,274 - models.alns - INFO - Iteration 10: objective=420000.00, removed=0, inserted=-42, unassigned=42, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:31:20,288 - models.alns - INFO - Iteration 20: objective=420000.00, removed=0, inserted=-42, unassigned=42, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:31:20,295 - models.alns - INFO - ALNS completed: objective=210025.51, vehicles=1, customers=-1/20
+2025-04-02 16:31:20,296 - __main__ - INFO - Generating progress visualization
+2025-04-02 16:31:22,118 - models.alns - INFO - Progress plot saved to results/progress.png
+2025-04-02 16:31:22,118 - __main__ - INFO - Generating iteration report
+2025-04-02 16:31:22,119 - models.alns - INFO - Iteration report saved to results/iterations.html
+2025-04-02 16:31:22,120 - __main__ - INFO - Calculating metrics
+2025-04-02 16:31:22,121 - __main__ - INFO - Optimization completed in 2.65 seconds
+2025-04-02 16:31:22,121 - __main__ - INFO - Total distance: 25.51 km
+2025-04-02 16:31:22,121 - __main__ - INFO - Total time: 7.76 hours
+2025-04-02 16:31:22,121 - __main__ - INFO - Estimated fuel consumption: 2.55 liters
+2025-04-02 16:31:22,121 - __main__ - INFO - Estimated CO2 emissions: 63.77 kg
+2025-04-02 16:31:22,123 - __main__ - INFO - Generating visualizations
+2025-04-02 16:31:22,270 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:31:22,275 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:31:23,125 - __main__ - INFO - Results saved to results/
+2025-04-02 16:31:35,051 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:31:35,051 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:31:35,057 - __main__ - INFO - Initializing solution
+2025-04-02 16:31:35,128 - __main__ - INFO - Running ALNS algorithm for 50 iterations
+2025-04-02 16:31:35,156 - models.alns - INFO - Starting ALNS algorithm with 50 iterations
+2025-04-02 16:31:35,156 - models.alns - INFO - Initial solution: objective=210025.51, vehicles=1
+2025-04-02 16:31:35,554 - models.alns - INFO - Iteration 1: objective=240025.51, removed=3, inserted=-21, unassigned=24, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:31:36,360 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,360 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,360 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,364 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,365 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,365 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,365 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,365 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,365 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,368 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,368 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,368 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,382 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,383 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,385 - models.alns - INFO - Iteration 10: objective=450010.30, removed=2, inserted=-43, unassigned=45, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:31:36,431 - models.alns - INFO - Iteration 20: objective=480007.46, removed=0, inserted=-48, unassigned=48, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:31:36,432 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,438 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,447 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,463 - models.alns - INFO - Iteration 30: objective=540003.54, removed=0, inserted=-54, unassigned=54, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:31:36,484 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,485 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:31:36,488 - models.alns - INFO - Iteration 40: objective=570000.00, removed=0, inserted=-57, unassigned=57, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:31:36,508 - models.alns - INFO - Iteration 50: objective=570000.00, removed=0, inserted=-57, unassigned=57, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:31:36,508 - models.alns - INFO - ALNS completed: objective=210025.51, vehicles=1, customers=-1/20
+2025-04-02 16:31:36,508 - __main__ - INFO - Generating progress visualization
+2025-04-02 16:31:37,951 - models.alns - INFO - Progress plot saved to results/progress.png
+2025-04-02 16:31:37,952 - __main__ - INFO - Generating iteration report
+2025-04-02 16:31:37,953 - models.alns - INFO - Iteration report saved to results/iterations.html
+2025-04-02 16:31:37,953 - __main__ - INFO - Calculating metrics
+2025-04-02 16:31:37,955 - __main__ - INFO - Optimization completed in 2.91 seconds
+2025-04-02 16:31:37,955 - __main__ - INFO - Total distance: 25.51 km
+2025-04-02 16:31:37,956 - __main__ - INFO - Total time: 7.76 hours
+2025-04-02 16:31:37,956 - __main__ - INFO - Estimated fuel consumption: 2.55 liters
+2025-04-02 16:31:37,956 - __main__ - INFO - Estimated CO2 emissions: 63.77 kg
+2025-04-02 16:31:37,958 - __main__ - INFO - Generating visualizations
+2025-04-02 16:31:38,082 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:31:38,086 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:31:38,691 - __main__ - INFO - Results saved to results/
+2025-04-02 16:35:14,938 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:35:14,938 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:35:14,947 - __main__ - INFO - Initializing solution
+2025-04-02 16:35:15,016 - __main__ - INFO - Running ALNS algorithm for 25 iterations
+2025-04-02 16:35:15,042 - models.alns - INFO - Starting ALNS algorithm with 25 iterations
+2025-04-02 16:35:15,042 - models.alns - INFO - Initial solution: objective=210025.51, vehicles=1
+2025-04-02 16:35:15,993 - models.alns - INFO - Iteration 1: objective=280022.84, removed=7, inserted=-21, unassigned=28, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:35:17,189 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,191 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,192 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,192 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,193 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,193 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,194 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,203 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,204 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,204 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,204 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,204 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,204 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,205 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,205 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,205 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,205 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,205 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,205 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:17,517 - models.alns - INFO - Iteration 10: objective=470000.00, removed=0, inserted=-47, unassigned=47, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:17,632 - models.alns - INFO - Iteration 20: objective=470000.00, removed=0, inserted=-47, unassigned=47, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:17,663 - models.alns - INFO - ALNS completed: objective=210025.51, vehicles=1, customers=-1/20
+2025-04-02 16:35:17,664 - __main__ - INFO - Generating progress visualization
+2025-04-02 16:35:19,697 - models.alns - INFO - Progress plot saved to results/progress.png
+2025-04-02 16:35:19,697 - __main__ - INFO - Generating iteration report
+2025-04-02 16:35:19,698 - models.alns - INFO - Iteration report saved to results/iterations.html
+2025-04-02 16:35:19,698 - __main__ - INFO - Calculating metrics
+2025-04-02 16:35:19,699 - __main__ - INFO - Optimization completed in 4.76 seconds
+2025-04-02 16:35:19,699 - __main__ - INFO - Total distance: 25.51 km
+2025-04-02 16:35:19,699 - __main__ - INFO - Total time: 7.76 hours
+2025-04-02 16:35:19,699 - __main__ - INFO - Estimated fuel consumption: 2.55 liters
+2025-04-02 16:35:19,699 - __main__ - INFO - Estimated CO2 emissions: 63.77 kg
+2025-04-02 16:35:19,700 - __main__ - INFO - Generating visualizations
+2025-04-02 16:35:19,749 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:35:19,751 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:35:20,206 - __main__ - INFO - Results saved to results/
+2025-04-02 16:35:35,287 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:35:35,288 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:35:35,295 - __main__ - INFO - Initializing solution
+2025-04-02 16:35:35,367 - __main__ - INFO - Running ALNS algorithm for 50 iterations
+2025-04-02 16:35:35,392 - models.alns - INFO - Starting ALNS algorithm with 50 iterations
+2025-04-02 16:35:35,393 - models.alns - INFO - Initial solution: objective=210025.51, vehicles=1
+2025-04-02 16:35:35,832 - models.alns - INFO - Iteration 1: objective=210025.51, removed=3, inserted=-18, unassigned=21, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:35:35,835 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,836 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,836 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,836 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,843 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,856 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,856 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,856 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,856 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,857 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,857 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,857 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,858 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,858 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,859 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,867 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,868 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,868 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:35,868 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:35:36,100 - models.alns - INFO - Iteration 10: objective=400000.00, removed=0, inserted=-40, unassigned=40, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:36,150 - models.alns - INFO - Iteration 20: objective=400000.00, removed=0, inserted=-40, unassigned=40, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:36,278 - models.alns - INFO - Iteration 30: objective=400000.00, removed=0, inserted=-40, unassigned=40, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:36,328 - models.alns - INFO - Iteration 40: objective=400000.00, removed=0, inserted=-40, unassigned=40, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:36,366 - models.alns - INFO - Iteration 50: objective=400000.00, removed=0, inserted=-40, unassigned=40, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:35:36,367 - models.alns - INFO - ALNS completed: objective=210025.51, vehicles=1, customers=-1/20
+2025-04-02 16:35:36,367 - __main__ - INFO - Generating progress visualization
+2025-04-02 16:35:37,938 - models.alns - INFO - Progress plot saved to results/progress.png
+2025-04-02 16:35:37,938 - __main__ - INFO - Generating iteration report
+2025-04-02 16:35:37,938 - models.alns - INFO - Iteration report saved to results/iterations.html
+2025-04-02 16:35:37,939 - __main__ - INFO - Calculating metrics
+2025-04-02 16:35:37,940 - __main__ - INFO - Optimization completed in 2.65 seconds
+2025-04-02 16:35:37,940 - __main__ - INFO - Total distance: 25.51 km
+2025-04-02 16:35:37,940 - __main__ - INFO - Total time: 7.76 hours
+2025-04-02 16:35:37,940 - __main__ - INFO - Estimated fuel consumption: 2.55 liters
+2025-04-02 16:35:37,940 - __main__ - INFO - Estimated CO2 emissions: 63.77 kg
+2025-04-02 16:35:37,941 - __main__ - INFO - Generating visualizations
+2025-04-02 16:35:37,989 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:35:37,991 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:35:38,904 - __main__ - INFO - Results saved to results/
+2025-04-02 16:38:17,993 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:38:17,994 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:38:18,002 - __main__ - INFO - Initializing solution
+2025-04-02 16:38:18,020 - __main__ - INFO - Running ALNS algorithm for 100 iterations
+2025-04-02 16:38:18,054 - models.alns - INFO - Starting ALNS algorithm with 100 iterations
+2025-04-02 16:38:18,054 - models.alns - INFO - Initial solution: objective=200034.46, vehicles=4
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,057 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,061 - models.alns - INFO - Iteration 1: objective=270025.84, removed=7, inserted=-20, unassigned=27, vehicles=3, accepted=✓, improved=✗
+2025-04-02 16:38:18,065 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,065 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,065 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,069 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,069 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,069 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,422 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,423 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,423 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,433 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,438 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,438 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,439 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:18,453 - models.alns - INFO - Iteration 10: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:18,615 - models.alns - INFO - Iteration 20: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:18,688 - models.alns - INFO - Iteration 30: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:18,864 - models.alns - INFO - Iteration 40: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:18,974 - models.alns - INFO - Iteration 50: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:19,238 - models.alns - INFO - Iteration 60: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:19,339 - models.alns - INFO - Iteration 70: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:19,427 - models.alns - INFO - Iteration 80: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:19,684 - models.alns - INFO - Iteration 90: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:19,869 - models.alns - INFO - Iteration 100: objective=440000.00, removed=0, inserted=-44, unassigned=44, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:19,873 - models.alns - INFO - ALNS completed: objective=200034.46, vehicles=4, customers=0/20
+2025-04-02 16:38:19,875 - __main__ - INFO - Generating progress visualization
+2025-04-02 16:38:21,800 - models.alns - INFO - Progress plot saved to results/progress.png
+2025-04-02 16:38:21,801 - __main__ - INFO - Generating iteration report
+2025-04-02 16:38:21,802 - models.alns - INFO - Iteration report saved to results/iterations.html
+2025-04-02 16:38:21,802 - __main__ - INFO - Calculating metrics
+2025-04-02 16:38:21,804 - __main__ - INFO - Optimization completed in 3.81 seconds
+2025-04-02 16:38:21,804 - __main__ - INFO - Total distance: 34.46 km
+2025-04-02 16:38:21,804 - __main__ - INFO - Total time: 13.80 hours
+2025-04-02 16:38:21,804 - __main__ - INFO - Estimated fuel consumption: 3.45 liters
+2025-04-02 16:38:21,804 - __main__ - INFO - Estimated CO2 emissions: 86.16 kg
+2025-04-02 16:38:21,805 - __main__ - INFO - Generating visualizations
+2025-04-02 16:38:21,870 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:38:21,873 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:38:22,705 - __main__ - INFO - Results saved to results/
+2025-04-02 16:38:33,890 - __main__ - INFO - Loading configuration from config.json
+2025-04-02 16:38:33,891 - __main__ - INFO - Loading data from data/sample_data.csv
+2025-04-02 16:38:33,895 - __main__ - INFO - Initializing solution
+2025-04-02 16:38:33,912 - __main__ - INFO - Running ALNS algorithm for 50 iterations
+2025-04-02 16:38:33,938 - models.alns - INFO - Starting ALNS algorithm with 50 iterations
+2025-04-02 16:38:33,938 - models.alns - INFO - Initial solution: objective=200034.46, vehicles=4
+2025-04-02 16:38:33,948 - models.alns - INFO - Iteration 1: objective=240036.27, removed=4, inserted=-20, unassigned=24, vehicles=4, accepted=✓, improved=✗
+2025-04-02 16:38:33,950 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,950 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,950 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,950 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,950 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,951 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,951 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,951 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,963 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,963 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,966 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,966 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,966 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,966 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,969 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,969 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,969 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,971 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,980 - models.alns - INFO - Iteration 10: objective=490004.00, removed=1, inserted=-48, unassigned=49, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:38:33,981 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:33,997 - models.alns - INFO - Iteration 20: objective=520003.05, removed=1, inserted=-51, unassigned=52, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:38:34,013 - models.alns - INFO - Iteration 30: objective=550003.05, removed=0, inserted=-55, unassigned=55, vehicles=1, accepted=✓, improved=✗
+2025-04-02 16:38:34,013 - models.alns - WARNING - Skipping invalid customer object: True
+2025-04-02 16:38:34,030 - models.alns - INFO - Iteration 40: objective=560000.00, removed=0, inserted=-56, unassigned=56, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:34,057 - models.alns - INFO - Iteration 50: objective=560000.00, removed=0, inserted=-56, unassigned=56, vehicles=0, accepted=✓, improved=✗
+2025-04-02 16:38:34,057 - models.alns - INFO - ALNS completed: objective=200034.46, vehicles=4, customers=0/20
+2025-04-02 16:38:34,058 - __main__ - INFO - Generating progress visualization
+2025-04-02 16:38:36,228 - models.alns - INFO - Progress plot saved to results/progress.png
+2025-04-02 16:38:36,228 - __main__ - INFO - Generating iteration report
+2025-04-02 16:38:36,229 - models.alns - INFO - Iteration report saved to results/iterations.html
+2025-04-02 16:38:36,229 - __main__ - INFO - Calculating metrics
+2025-04-02 16:38:36,230 - __main__ - INFO - Optimization completed in 2.34 seconds
+2025-04-02 16:38:36,230 - __main__ - INFO - Total distance: 34.46 km
+2025-04-02 16:38:36,230 - __main__ - INFO - Total time: 13.80 hours
+2025-04-02 16:38:36,230 - __main__ - INFO - Estimated fuel consumption: 3.45 liters
+2025-04-02 16:38:36,230 - __main__ - INFO - Estimated CO2 emissions: 86.16 kg
+2025-04-02 16:38:36,232 - __main__ - INFO - Generating visualizations
+2025-04-02 16:38:36,286 - visualization.visualizer - INFO - Routes map saved to results/routes.html
+2025-04-02 16:38:36,288 - visualization.visualizer - INFO - KPI dashboard saved to results/kpi_dashboard.html
+2025-04-02 16:38:36,507 - __main__ - INFO - Results saved to results/
