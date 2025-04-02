@@ -178,7 +178,7 @@ def main():
     
     # Create output directory if it doesn't exist
     if not os.path.exists(args.output):
-        os.makedirs(args.output)
+        os.makedirs(args.output, exist_ok=True)
     
     # Load configuration
     logger.info(f"Loading configuration from {args.config}")
@@ -189,39 +189,58 @@ def main():
     data_loader = DataLoader(args.data)
     customers, vehicles, depot = data_loader.load()
     
-    # Configure traffic patterns if enabled
-    if args.traffic:
-        logger.info("Configuring traffic patterns")
-        configure_traffic_patterns(vehicles)
-    
-    # Configure heterogeneous fleet if enabled
-    if args.heterogeneous_fleet:
-        logger.info("Configuring heterogeneous fleet")
-        vehicles = configure_heterogeneous_fleet(vehicles)
-    
-    # Initialize solution
-    logger.info("Initializing solution")
-    initial_solution = Solution(customers, vehicles, depot)
-    initial_solution.generate_initial_solution()
-    
-    # Enable time-dependent routing if traffic simulation is enabled
-    if args.traffic:
-        logger.info("Enabling time-dependent routing")
-        initial_solution.enable_time_dependent_routing(True)
-    
-    # Set driver constraints if enabled
-    if args.driver_hours:
-        logger.info("Setting driver working hour constraints")
-        initial_solution.set_driver_constraints(
-            max_route_duration=10.0,  # 10 hours max route duration
-            max_continuous_driving=4.5,  # 4.5 hours max continuous driving (EU regulation)
-            required_break_time=0.75  # 45 minutes break
-        )
+    try:
+        # Configure traffic patterns if enabled
+        if args.traffic:
+            logger.info("Configuring traffic patterns")
+            configure_traffic_patterns(vehicles)
+        
+        # Configure heterogeneous fleet if enabled
+        if args.heterogeneous_fleet:
+            logger.info("Configuring heterogeneous fleet")
+            vehicles = configure_heterogeneous_fleet(vehicles)
+        
+        # Initialize solution
+        logger.info("Initializing solution")
+        initial_solution = Solution(customers, vehicles, depot)
+        initial_solution.generate_initial_solution(method="nearest_neighbor")  # Force nearest_neighbor method
+        
+        # Enable time-dependent routing if traffic simulation is enabled
+        if args.traffic:
+            logger.info("Enabling time-dependent routing")
+            initial_solution.enable_time_dependent_routing(True)
+        
+        # Set driver constraints if enabled
+        if args.driver_hours:
+            logger.info("Setting driver working hour constraints")
+            initial_solution.set_driver_constraints(
+                max_route_duration=10.0,  # 10 hours max route duration
+                max_continuous_driving=4.5,  # 4.5 hours max continuous driving (EU regulation)
+                required_break_time=0.75  # 45 minutes break
+            )
+    except Exception as e:
+        logger.error(f"Error initializing solution: {str(e)}")
+        logger.error("Falling back to basic initialization")
+        # Fallback to basic initialization without special options
+        initial_solution = Solution(customers, vehicles, depot)
+        initial_solution.generate_initial_solution(method="nearest_neighbor")
     
     # Run ALNS algorithm
     logger.info(f"Running ALNS algorithm for {args.iterations} iterations")
-    alns = ALNS(initial_solution, config)
-    best_solution = alns.solve(args.iterations)
+    try:
+        alns = ALNS(initial_solution, config)
+        best_solution = alns.solve(args.iterations)
+    except Exception as e:
+        logger.error(f"Error during ALNS algorithm execution: {str(e)}")
+        logger.error("Using initial solution as best solution")
+        best_solution = initial_solution
+        # Create empty ALNS object to avoid errors in visualization
+        alns = ALNS(initial_solution, config)
+        # Initialize required fields for visualization
+        alns.iter_objective_values = [initial_solution.evaluate()]
+        alns.iter_best_values = [initial_solution.evaluate()]
+        alns.iter_temperatures = [100.0]
+        alns.iter_details = []
     
     # Generate progress plot
     logger.info("Generating progress visualization")
@@ -242,7 +261,18 @@ def main():
     
     # Calculate driver metrics if driver hours enabled
     if args.driver_hours:
-        driver_metrics = best_solution.calculate_driver_metrics()
+        try:
+            driver_metrics = best_solution.calculate_driver_metrics()
+        except Exception as e:
+            logger.error(f"Error calculating driver metrics: {str(e)}")
+            driver_metrics = {
+                "total_driving_time": 0,
+                "total_break_time": 0,
+                "total_service_time": 0,
+                "total_wait_time": 0,
+                "total_working_time": 0,
+                "driving_time_percentage": 0
+            }
     
     # Print results
     logger.info(f"Optimization completed in {time.time() - start_time:.2f} seconds")
@@ -299,20 +329,42 @@ def main():
     
     # Visualize results
     logger.info("Generating visualizations")
-    visualizer = Visualizer(best_solution)
-    visualizer.plot_routes(f"{args.output}/routes.html")
-    visualizer.create_kpi_dashboard(f"{args.output}/kpi_dashboard.html")
-    
-    # Add environmental impact visualization
-    visualizer.plot_environmental_impact(f"{args.output}/environmental_impact.html")
-    
-    # Add traffic patterns visualization if enabled
-    if args.traffic:
-        visualizer.plot_traffic_patterns(f"{args.output}/traffic_patterns.html")
-    
-    # Add heterogeneous fleet visualization if enabled
-    if args.heterogeneous_fleet:
-        visualizer.plot_fleet_composition(f"{args.output}/fleet_composition.html")
+    try:
+        visualizer = Visualizer(best_solution)
+        
+        # Generate route map
+        try:
+            visualizer.plot_routes(f"{args.output}/routes.html")
+        except Exception as e:
+            logger.error(f"Error generating routes visualization: {str(e)}")
+        
+        # Generate KPI dashboard
+        try:
+            visualizer.create_kpi_dashboard(f"{args.output}/kpi_dashboard.html")
+        except Exception as e:
+            logger.error(f"Error generating KPI dashboard: {str(e)}")
+        
+        # Add environmental impact visualization
+        try:
+            visualizer.plot_environmental_impact(f"{args.output}/environmental_impact.html")
+        except Exception as e:
+            logger.error(f"Error generating environmental impact visualization: {str(e)}")
+        
+        # Add traffic patterns visualization if enabled
+        if args.traffic:
+            try:
+                visualizer.plot_traffic_patterns(f"{args.output}/traffic_patterns.html")
+            except Exception as e:
+                logger.error(f"Error generating traffic patterns visualization: {str(e)}")
+        
+        # Add heterogeneous fleet visualization if enabled
+        if args.heterogeneous_fleet:
+            try:
+                visualizer.plot_fleet_composition(f"{args.output}/fleet_composition.html")
+            except Exception as e:
+                logger.error(f"Error generating fleet composition visualization: {str(e)}")
+    except Exception as e:
+        logger.error(f"Error in visualization process: {str(e)}")
     
     logger.info(f"Results saved to {args.output}/")
 

@@ -104,12 +104,18 @@ class ALNS:
         self.iter_best_values.append(best_obj)
         self.iter_temperatures.append(self.temperature)
         
-        # Create progress bar
-        progress_bar = tqdm(range(self.iterations), desc="ALNS")
-        
-        # Log initial state
-        logger.info(f"Starting ALNS algorithm with {self.iterations} iterations")
-        logger.info(f"Initial solution: objective={current_obj:.2f}, vehicles={len([r for r in self.current_solution.routes if r.customers])}")
+        # Create progress bar with compatible options
+        progress_bar = tqdm(range(self.iterations), desc="ALNS", 
+                          mininterval=0.1, maxinterval=1.0, 
+                          dynamic_ncols=True, ncols=100)
+                           
+        # Add direct console output that works regardless of tqdm
+        print(f"\n{'='*80}")
+        print(f"Starting ALNS optimization with {self.iterations} iterations")
+        print(f"Initial solution: {len([r for r in self.current_solution.routes if r.customers])} vehicles, {current_obj:.2f} objective")
+        print(f"{'='*80}")
+        print(f"{'Iteration':^10}|{'Objective':^12}|{'Best':^12}|{'Vehicles':^10}|{'Status':^10}")
+        print(f"{'-'*10:^10}|{'-'*12:^12}|{'-'*12:^12}|{'-'*10:^10}|{'-'*10:^10}")
         
         # Main loop
         for i in progress_bar:
@@ -184,23 +190,43 @@ class ALNS:
             }
             self.iter_details.append(iter_detail)
             
-            # Log detailed iteration information
-            if (i+1) % 10 == 0 or i == 0 or improved:
-                vehicles_used = len([r for r in temp_solution.routes if r.customers])
-                logger.info(f"Iteration {i+1}: objective={new_obj:.2f}, removed={num_removed}, inserted={num_inserted}, " +
-                          f"unassigned={num_unassigned}, vehicles={vehicles_used}, " +
-                          f"accepted={'✓' if accepted else '✗'}, improved={'✓' if improved else '✗'}")
+            # Log iteration information for every iteration to provide more visibility
+            vehicles_used = len([r for r in temp_solution.routes if r.customers])
+            log_message = f"Iteration {i+1}: objective={new_obj:.2f}, removed={num_removed}, inserted={num_inserted}, " + \
+                          f"unassigned={num_unassigned}, vehicles={vehicles_used}, " + \
+                          f"accepted={'✓' if accepted else '✗'}, improved={'✓' if improved else '✗'}"
             
-            # 11. Update progress bar
+            # Always log basic info, but use INFO level for milestones
+            if (i+1) % 10 == 0 or i == 0 or improved:
+                logger.info(log_message)
+            else:
+                logger.debug(log_message)
+                
+            # Always print status as a compact table row for every iteration
+            status = "•" if accepted else "✗"
+            if new_obj < best_obj:
+                status = "★"  # Star for improvements
+                
+            print(f"{i+1:^10}|{new_obj:^12.2f}|{best_obj:^12.2f}|{vehicles_used:^10}|{status:^10}")
+            
+            # 11. Update progress bar with more detailed information
             progress_bar.set_postfix({
                 'destroy': destroy_name.split()[0],
                 'repair': repair_name.split()[0],
                 'removed': num_removed,
                 'current': f"{current_obj:.2f}", 
                 'best': f"{best_obj:.2f}",
-                'temp': f"{self.temperature:.2f}",
+                'vehicles': vehicles_used,
                 'accepted': '✓' if accepted else '✗'
-            })
+            }, refresh=True)
+            
+            # Extra details for significant iterations
+            if (i+1) % 10 == 0 or i == 0 or improved or i == self.iterations - 1:
+                print(f"Iter {i+1}: {destroy_name} → {repair_name}, removed={num_removed}, inserted={num_inserted}")
+            
+            # Flush output to ensure it appears immediately
+            import sys
+            sys.stdout.flush()
         
         # Log final statistics
         vehicles_used = len([r for r in self.best_solution.routes if r.customers])
